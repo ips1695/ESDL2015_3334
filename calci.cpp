@@ -26,7 +26,8 @@ int main()
 
 	cout<<"Menu"<<endl; 
 	cout<<"1.Addition"<<endl; 
-	cout<<"2.Multiplication"<<endl; 
+	cout<<"2.Multiplication"<<endl;
+	cout<<"3.Square"<<endl; 
 
 	cout<<"Enter your choice : "; 
 	cin>>ch; 
@@ -87,6 +88,33 @@ int main()
 		fin.close(); 
 
 		break; 
+	case 3: 
+
+		cout<<"Enter the output filename : "; 
+		cin>>outfile; 
+
+		fout.open(outfile,ios::out); 
+		if(!fout) 
+		{ 
+			cout<<"Cannot open file"<<endl; 
+			return 1; 
+		}			 
+		 
+		while(fin) 
+		{ 
+			fin>>num; 
+			if(!fin.eof()) 
+			{	 
+				res = pow(num,2); 
+				fout<<"Square of "<<num<<" is "<<res<<endl; 
+			} 
+		} 
+
+		cout<<"Res stored in output file"<<endl; 
+
+		fin.close(); 
+		break; 
+
 	 
 
 	
