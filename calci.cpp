@@ -28,6 +28,7 @@ int main()
 	cout<<"1.Addition"<<endl; 
 	cout<<"2.Multiplication"<<endl;
 	cout<<"3.Square"<<endl; 
+	cout<<"4.Log"<<endl;
 
 	cout<<"Enter your choice : "; 
 	cin>>ch; 
@@ -114,6 +115,36 @@ int main()
 
 		fin.close(); 
 		break; 
+	case 4: 
+		double ans; 
+
+		cout<<"Enter the output filename : "; 
+		cin>>outfile; 
+
+		fout.open(outfile,ios::out); 
+
+		if(!fout) 
+		{ 
+			cout<<"Cannot open file"<<endl; 
+			return 1; 
+		}			 
+
+		while(fin) 
+		{ 
+			fin>>num; 
+			if(!fin.eof()) 
+			{ 
+				ans =log(num); 
+				fout<<"Log of "<<num<<" is "<<ans<<endl; 
+			} 
+		} 
+
+		cout<<"Res stored in output file"<<endl; 
+		fin.close(); 
+
+		break; 
+
+
 
 	 
 
